@@ -1,0 +1,15 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="container pt-4" *ngIf="!loading">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-5">
+      <div class="row pokedex-row">
+        <div class="col-4 text-center pointer pokedex-entry" *ngFor="let pokemon of pokedexData ; index as i"
+          [routerLink]="['/pokemon', pokemon.entry_number]">
+          <div class="poke-wrap"> <img src="https://img.pokemondb.net/sprites/sun-moon/icon/{{pokemon.pokemon_species.name}}.png">
+            <p> #{{ pokemon.entry_number }} - {{ pokemon.pokemon_species.name | titlecase }} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

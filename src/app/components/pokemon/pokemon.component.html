@@ -1,0 +1,61 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="container" *ngIf="!loading">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-5 text-center">
+      <div class="row my-4 pb-3 border-bottom ">
+        <div class="col-2 a-self-center"><a class="btn px-0" [routerLink]="['/pokemon', pokemonData.desc.id - 1 ]" (click)="fetchPokeData(pokemonData.desc.id - 1)" *ngIf="back"> « {{ pokemonData.desc.id - 1 }} </a></div>
+        <div class="col-8"> 
+          <h1>#{{ pokemonData.desc.id }}  {{ pokemonData.data.name | titlecase }}</h1> </div>
+        <div class="col-2 a-self-center"><a class="btn px-0" [routerLink]="['/pokemon', pokemonData.desc.id + 1 ]" (click)="fetchPokeData(pokemonData.desc.id + 1)" *ngIf="next">  {{ pokemonData.desc.id + 1 }} » </a></div>
+      </div>
+     
+      <div class="row">
+        <div class="col-4">
+          <a class="btn d-block img-toggler" [ngClass]="{'active': imgType == 'normal'}" (click)="imgViewType('normal')">Normal</a>
+          <a class="btn d-block img-toggler my-3" [ngClass]="{'active': imgType == 'animated'}" (click)="imgViewType('animated')">Animated</a>
+          <a class="btn d-block img-toggler shiny" [ngClass]="{'active': shiny}" (click)="shinyToggle(imgType)">Shiny</a>
+        </div>
+        <div class="col-4 a-self-center">
+            <img class="pokepic" src="{{ pokeImage }}" alt="{{pokemonData.data.name}} front sprite">
+        </div>
+        <div class="col-4 a-self-center">
+            <img class="pokepic" src="{{ pokeImageBack }}" alt="{{pokemonData.data.name}} back sprite">
+        </div>
+      </div>
+      <div class="row py-4">
+        <div class="col-12 text-center">
+          <span class="type {{ type.type.name }} mr-3" *ngFor="let type of pokemonData.data.types.slice().reverse()">{{ type.type.name | uppercase }} </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p class="font-weight-bold"> {{ pokemonData.desc.genus.genus }} </p>
+          <p> {{ pokemonData.desc.flavor_text.flavor_text }} </p>
+        </div>
+      </div>
+      <div class="row pt-3">
+        <div class="col-12">
+          <h5>Abilities</h5>
+          <div class="row pt-2">
+            <div class="col" *ngFor="let ability of abilityData.slice().reverse()"> 
+              <p> {{ findEnglishText(ability.names).name }} </p>
+              <p class="font-italic font-12"> {{ findEnglishText(ability.effect_entries).short_effect }} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-3">
+        <div class="col-12">
+          <h5>Stats</h5>
+          <div class="row pt-2">
+            <div class="col-4 mb-4" *ngFor="let stat of pokemonData.data.stats.slice().reverse()">
+              <div class="stat {{stat.stat.name}}"> 
+                <p class="font-weight-bold"> {{ stat.stat.name | titlecase }} </p> 
+                <p> {{ stat.base_stat }} </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

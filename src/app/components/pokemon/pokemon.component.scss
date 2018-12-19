@@ -1,0 +1,142 @@
+.type {
+  color: white;
+  padding: 2px 10px 4px;
+  border: gray;
+  border-radius: 5px;
+  font-size: 11px;
+}
+
+.normal {
+  background-color: #b9b9aa;
+}
+
+.grass {
+  background-color: #8dd950
+}
+
+.fire {
+  background-color: #fa5441
+}
+
+.water {
+  background-color: #55afff
+}
+
+.fighting {
+  background-color: #a85541
+}
+
+.flying {
+  background-color: #7aa5ff
+}
+
+.poison {
+  background-color: #ac5ea4
+}
+
+.ground {
+  background-color: #eecd55
+}
+
+.rock {
+  background-color: #cebd73
+}
+
+.bug {
+  background-color: #c3d21a
+}
+
+.ghost {
+  background-color: #7a76d8
+}
+
+.electric {
+  background-color: #fde63a
+}
+
+.psychic {
+  background-color: #fa64b6
+}
+
+.ice {
+  background-color: #97f1ff
+}
+
+.dragon {
+  background-color: #8a76ff
+}
+
+.dark {
+  background-color: #8f6955
+}
+
+.steel {
+  background-color: #c5c3dc
+}
+
+.fairy {
+  background-color: #f9adff
+}
+
+.stat {
+  border-radius: 4px;
+
+  p {
+    font-size: 13px;
+    margin: 0px;
+    padding: 5px 0px;
+  }
+
+  &.hp {
+    background-color: #FF5959;
+  }
+
+  &.attack {
+    background-color: #F5AC78;
+  }
+
+  &.defense {
+    background-color: #FAE078;
+  }
+
+  &.special-attack {
+    background-color: #9DB7F5;
+  }
+
+  &.special-defense {
+    background-color: #A7DB8D;
+  }
+
+  &.speed {
+    background-color: #FA92B2;
+  }
+}
+
+.pokepic {
+  max-width: 96px;
+}
+
+.a-self-center {
+  align-self: center;
+}
+
+.img-toggler {
+  background-color: #e8efff;
+
+  font-size: 11px;
+  &.active {
+    background-color: #9db7f5;
+  }
+  &.shiny {
+    background-color: #dcecd3;
+    &.active {
+      background-color: #a7db8d;
+    }
+  }
+}
+
+@for $i from 10 through 22{
+  .font-#{$i}{
+    font-size: #{$i}px
+  }
+}

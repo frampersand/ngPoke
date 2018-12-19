@@ -1,0 +1,19 @@
+.pointer{
+    cursor: pointer;
+}
+.pokedex-row{
+    .pokedex-entry{
+        border-bottom: 1px solid #b33636;
+        padding: 2px;
+        .poke-wrap{
+            padding-top: 20px;
+            background-color: white;
+            height: 100%;
+            transition: background-color 0.2s ease-in-out;
+            &:hover{
+                background-color: #ffdada;
+                transition: background-color 0.2s ease-in-out;
+            }
+        }
+    }
+}

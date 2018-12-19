@@ -1,0 +1,7 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/pokedex']">Pokedex</a>
+  <form class="form-inline">
+    <input #search [formControl]="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search Pokemon"
+      aria-label="Search">
+  </form>
+</nav>
